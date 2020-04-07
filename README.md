@@ -23,9 +23,9 @@ This is multi step form, for subscribe or something else, so you can see this, f
 ## Technologies
 * [React](https://reactjs.org/docs/getting-started.html) - version 16.13.1
 * [Node.js](https://nodejs.org/en/docs/) - version 13
-* [CSS](https://devdocs.io/css/) - version 3
+* [Material UI] (https://material-ui.com/)
 * [React-dom](https://github.com/facebook/react) - version 16.13.1
-* Axios
+
 
 
 ## Setup
@@ -53,40 +53,42 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Code Examples
 Code:</br>
-`async getData(){`</br>
-        `const res = await Axios.get("https://covid19.mathdro.id/api");`</br>
-        `const resCountry = await Axios.get("https://covid19.mathdro.id/api/countries");`</br>
-        `const countries = [];`</br>
-       ` const image = res.data.image;`</br>
-       ` for(var i = 0; i<resCountry.data.countries.length;i++){`</br>
-          `  countries.push(resCountry.data.countries[i].name)`</br>
-        `}`
+`nextStep = () => {`</br>
+        `const {step} = this.state`</br>
         `this.setState({`</br>
-            `confirmed: res.data.confirmed.value,`</br>
-            `recovered: res.data.recovered.value,`</br>
-            `deaths: res.data.deaths.value,`  </br>
-            `countries,`</br>
-            `image: image,`</br>
-            `lastUpdate: res.data.lastUpdate`       </br>   
+           ` step: step + 1`</br>
         `})`</br>
+   ` }`</br>
+     `//Go back`</br>
+     `prevStep = () => {`</br>
+        `const {step} = this.state`</br>
+       `this.setState({`</br>
+           ` step: step - 1`</br>
+        `})`</br>
+  `  }`</br>
+   ` //Handle change`</br>
+    `handleChange = input => e =>{`</br>
+       ` this.setState({`</br>
+           ` [input]: e.target.value`</br>
+      ` })`</br>
     `}`</br>
 
 ## Features
 List of features ready and TODOs for future development
-* Check cases
-* Confirmed cases
-* Recovered cases
-* Deaths
-* Graph
+* First and last name
+* Email
+* Bio
+* Occupation
+* City
 
 To-do list:
-* none
+* Extract in bigger project
 
 ## Status
 Project is: _finished_
 
 ## Inspiration
-Credits: [mathdroid](https://github.com/mathdroid/covid-19-api) for an awesome api
+Credits: [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA) 
 
 ## Contact
 Created by [Marko Vitkovic](https://github.com/MarkoVitkovic) - feel free to contact me!
